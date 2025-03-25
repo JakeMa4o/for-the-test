@@ -1,0 +1,84 @@
+$heroCardPadding: 47px 20px 20px;
+$heroCardBoxShadow: 0 4px 10px 8px #00000011;
+$heroCardBorderRadius: 8px;
+
+$h3FontSize: 1.25rem;
+$h3MarginBottom: 0.75rem;
+
+$paragraphFontSize: 0.875rem;
+$paragraphMarginBottom: 1.375rem;
+
+$iconFontSize: 1.5625rem;
+$iconBorderRadius: 12px;
+$iconBg: #7B93FF;
+
+$detailsColor: #9DA5B9;
+$ratingFontSize: 0.875rem;
+$featureBg: #E1E5EE;
+$featurePadding: 4px 8px;
+$featureBorderRadius: 4px;
+$featureFontSize: 0.75rem;
+$featureColor: #2A324B;
+$featureFontWeigth: 500;
+
+$white: #FFFFFF;
+
+.heroCard {
+  position: relative;
+  text-align: center;
+  background-color: $white;
+  padding: $heroCardPadding;
+  box-shadow: $heroCardBoxShadow;
+  border-radius: $heroCardBorderRadius;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+
+  h3 {
+    font-size: $h3FontSize;
+    margin-bottom: $h3MarginBottom;
+  }
+
+  p {
+    font-size: $paragraphFontSize;
+    margin-bottom: $paragraphMarginBottom;
+  }
+
+  .icon {
+    display: grid;
+    position: absolute;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: $iconBg;
+    top: -40px;
+    left: 50%;
+    transform: translate(-50%, 1rem);
+    font-size: $iconFontSize;
+    border-radius: $iconBorderRadius;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    color: $detailsColor;
+
+    .rating {
+      font-size: $ratingFontSize;
+    }
+
+    .feature {
+      background-color: $featureBg;
+      padding: $featurePadding;
+      border-radius: $featureBorderRadius;
+      font-size: $featureFontSize;
+      font-weight: $featureFontWeigth;
+      color: $featureColor;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

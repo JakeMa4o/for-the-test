@@ -1,0 +1,140 @@
+$projectsPadding: 40px 0 65px;
+
+$containerMaxWidthMobile: 340px;
+$containerMaxWidthTablet: 733px;
+$containerMaxWidthDesktop: 1154px;
+
+$containerGapMobile: 30px;
+
+$h2FontSize: 2rem;
+$h2FontWeigth: 700;
+
+$paragraphFontWeigth: 400;
+
+$projectCardsGapMobile: 1rem;
+$projectCardsGapDesktop: 23px 20px;
+
+$projectCardBg: #E1E5EE;
+$projectCardColor: #9DA5B9;
+$projectCardFontWeigth: 700;
+$projectCardFontBorderRadius: 8px;
+
+
+$white: #FFFFFF;
+
+$projectCardDetailsBg: #2a324bbc;
+$projectCardDetailsHeaderFontSize: 1.125rem;
+$projectCardDetailsParagraphFontSize: 0.875rem;
+$projectCardDetailsParagraphColor: #FFD166;
+$projectCardDetailsParagraphFontWeigth: 500;
+$projectCardDetailsButtonBg: #4A6FFF;
+$projectCardDetailsButtonPadding: 6px 8px;
+$projectCardDetailsButtonRadius: 4px;
+
+.projects {
+  text-align: center;
+  padding: $projectsPadding;
+
+  .container {
+    max-width: $containerMaxWidthMobile;
+    margin: auto;
+    display: grid;
+    gap: $containerGapMobile;
+
+    h2 {
+      font-size: $h2FontSize;
+      font-weight: $h2FontWeigth;
+    }
+
+    p {
+      font-weight: $paragraphFontWeigth;
+    }
+  
+    .projectCards {
+      display: grid;
+      gap: $projectCardsGapMobile;
+  
+      .projectCard {
+        max-width: 372px;
+        height: 262px; 
+        display: grid;
+        place-items: center;
+        background-color: $projectCardBg;
+        color: $projectCardColor;
+        position: relative;
+        border-radius: $projectCardFontBorderRadius;
+        font-weight: $projectCardFontWeigth;
+        overflow: hidden;
+        cursor: pointer;
+    
+        .projectCardDetails {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          background-color: $projectCardDetailsBg;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          user-select: none;
+          opacity: 0;
+          z-index: -1;
+          transition: opacity 0.5s ease;
+          
+
+          h3 {
+            color: $white;
+            font-size: $projectCardDetailsHeaderFontSize;
+          }
+
+          p {
+            color: $projectCardDetailsParagraphColor;
+            font-size: $projectCardDetailsParagraphFontSize;
+            font-weight: $projectCardDetailsParagraphFontWeigth;
+          }
+
+          button {
+            background-color: $projectCardDetailsButtonBg;
+            color: $white;
+            font-size: $projectCardDetailsParagraphFontSize;
+            font-weight: $projectCardDetailsParagraphFontWeigth;
+            border: none;
+            padding: $projectCardDetailsButtonPadding;
+            border-radius: $projectCardDetailsButtonRadius;
+          }
+        }
+
+        transition: transform 0.5s ease;
+    
+        &:hover .projectCardDetails{
+          opacity: 1;
+          z-index: 2;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: $containerMaxWidthTablet;
+
+      .projectCards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+    }
+
+    @media screen and (min-width: 1200px) {
+      max-width: $containerMaxWidthDesktop;
+
+      .projectCards {
+        gap: $projectCardsGapDesktop;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+  }
+
+}

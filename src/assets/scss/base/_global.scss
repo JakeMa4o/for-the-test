@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 body {
@@ -8,7 +10,7 @@ body {
 	margin: 0;
 	line-height: 1.5;
 	place-items: center;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 #root {
 	width: 100%;
